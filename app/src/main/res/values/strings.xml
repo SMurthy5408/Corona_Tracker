@@ -2,4 +2,12 @@
     <string name="app_name">Corona Tracker</string>
     <string name="daily_update">Daily Update</string>
     <string name="totals">Totals</string>
+    <string name="welcome_message"></string>
+    <string name="GlobalStats">World Statistics</string>
+    <string name="Country_Stats">Country Statistics</string>
+    <string name="TotalDeaths">Total Deaths</string>
+    <string name="TotalCases">Total Cases</string>
+    <string name="TotalRecover">Total Recoveries</string>
+
+
 </resources>
