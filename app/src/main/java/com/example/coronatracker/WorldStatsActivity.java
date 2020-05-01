@@ -15,7 +15,7 @@ public class WorldStatsActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worldstats);
         RequestQueueService requester = new RequestQueueService(getApplicationContext());
-        String data = requester.getData("summary");
+        String data = requester.getData("summary", "Global");
         TextView deaths = findViewById(R.id.deaths);
         deaths.setText(data);
     }
