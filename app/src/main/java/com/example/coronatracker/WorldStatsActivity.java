@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
@@ -13,8 +14,9 @@ public class WorldStatsActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worldstats);
-
-
-
+        RequestQueueService requester = new RequestQueueService(getApplicationContext());
+        String data = requester.getData("summary");
+        TextView deaths = findViewById(R.id.deaths);
+        deaths.setText(data);
     }
 }
