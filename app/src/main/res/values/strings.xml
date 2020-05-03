@@ -8,6 +8,9 @@
     <string name="TotalDeaths">Total Deaths</string>
     <string name="TotalCases">Total Cases</string>
     <string name="TotalRecover">Total Recoveries</string>
+    <string name="DeathNumbers">0</string>
+    <string name="CaseNumbers">0</string>
+    <string name="RecoveredNumbers">0</string>
 
 
 </resources>

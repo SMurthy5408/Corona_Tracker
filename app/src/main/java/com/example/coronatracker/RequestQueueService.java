@@ -26,6 +26,7 @@ public class RequestQueueService {
     final String baseUrl = "https://api.covid19api.com/summary";
     private StringRequest stringRequest;
     private Context context;
+    private JsonObject jsonObject;
 
     public RequestQueueService(Context ctx) {
         context = ctx;
@@ -44,9 +45,10 @@ public class RequestQueueService {
             @Override
             public void onResponse(String response) {
                 JsonObject convertedObject = new Gson().fromJson(response, JsonObject.class);
+                if (convertedObject == null) {
+                    System.out.println("convertedObject is null");
+                }
                 toReturn[0] = convertedObject;
-
-
             }
         }, new Response.ErrorListener() {
             @Override
