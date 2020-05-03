@@ -15,8 +15,13 @@ public class WorldStatsActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worldstats);
         RequestQueueService requester = new RequestQueueService(getApplicationContext());
-        String data = requester.getData("summary", "Global");
-        TextView deaths = findViewById(R.id.deaths);
-        deaths.setText(data);
+
+        // Country Info object to be created with name of button (the ocuntry name) passed into extractInfo method
+        // of the country info class
+
+        System.out.println("deaths for this country: ");
+        //TextView deaths = findViewById(R.id.deaths);
+        //String data = "";
+        //deaths.setText(data);
     }
 }
