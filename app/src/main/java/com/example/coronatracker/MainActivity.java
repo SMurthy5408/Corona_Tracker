@@ -21,11 +21,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
+    private RequestQueue requestQueue;
+    final String url = "https://api.covid19api.com/summary";
+    private StringRequest stringRequest;
 
     public MainActivity() {
     }
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Button countryButton = findViewById(R.id.selectCountry);
         Button worldButton = findViewById(R.id.selectWorld);
         Log.i("Creation", "I've been created.");
-        final Intent countryIntent = new Intent(this, CountryStatsActivity.class);
+        final Intent countryIntent = new Intent(this, CountryMenuActivity.class);
         final Intent worldIntent = new Intent(this, WorldStatsActivity.class);
 
         countryButton.setOnClickListener(new View.OnClickListener() {
@@ -61,5 +66,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
 }

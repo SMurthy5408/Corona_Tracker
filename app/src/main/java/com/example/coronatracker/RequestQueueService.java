@@ -29,6 +29,7 @@ public class RequestQueueService {
     private Context context;
     private JsonObject jsonObject;
     private TextView deaths;
+    public CountryInfo countryInfo;
 
     public RequestQueueService(Context ctx) {
         context = ctx;
@@ -50,17 +51,6 @@ public class RequestQueueService {
 
                 CountryInfo countryInfo = new CountryInfo(convertedObject);
                 countryInfo.extractInfo(country);
-
-                //TextView may need to be done here for each country
-
-                //deaths
-
-                //deaths = findViewById(R.id.deathNumbers);
-                //deaths.setText(countryInfo.getNumDeaths());
-
-                // recovered
-
-                // cases
             }
         }, new Response.ErrorListener() {
             @Override
