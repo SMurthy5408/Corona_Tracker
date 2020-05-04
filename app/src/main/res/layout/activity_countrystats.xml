@@ -26,6 +26,16 @@
             app:titleMargin="4dp"
             app:titleTextColor="#FFFFFF" />
 
+        <TextView
+            android:id="@+id/countryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="250dp"
+            android:text="name"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <TableLayout
