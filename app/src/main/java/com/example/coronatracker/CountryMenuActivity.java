@@ -40,13 +40,6 @@ public class CountryMenuActivity extends MainActivity {
             }
         });
 
-        //RequestQueueService requester = new RequestQueueService(getApplicationContext());
-
-        // 1. create menu
-        // 2. have a button for each menu item that corresponds to a country
-        // 3. convert name of pressed button to string
-        // 4. pass the string to getData method
-        //requester.getData(country);
     }
 
 }
