@@ -6,6 +6,7 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.annotation.RequiresApi;
 
@@ -29,6 +30,9 @@ public class CountryStatsActivity extends MainActivity {
         Bundle extras = getIntent().getExtras();
         country = extras.getString("countryName");
         getData(country);
+        TextView view = findViewById(R.id.countryName);
+        view.setText(country
+        );
     }
 
     public void getData(String country) {
