@@ -45,11 +45,9 @@ public class MainActivity extends AppCompatActivity {
         final Intent countryIntent = new Intent(this, CountryStatsActivity.class);
         final Intent worldIntent = new Intent(this, WorldStatsActivity.class);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
         countryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Country");
                 startActivity(countryIntent);
 
             }
@@ -59,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         worldButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("World");
                 startActivity(worldIntent);
             }
         });

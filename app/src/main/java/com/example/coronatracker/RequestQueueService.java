@@ -4,6 +4,7 @@ import android.content.Context;
 
 import android.content.res.AssetManager;
 import android.util.Log;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -23,32 +24,43 @@ import com.google.gson.JsonObject;
  */
 public class RequestQueueService {
     private RequestQueue requestQueue;
-    final String baseUrl = "https://api.covid19api.com/summary";
+    final String url = "https://api.covid19api.com/summary";
     private StringRequest stringRequest;
     private Context context;
     private JsonObject jsonObject;
+    private TextView deaths;
 
     public RequestQueueService(Context ctx) {
         context = ctx;
+        System.out.println("requester created");
     }
 
     /**
      * Connects to the api and sends a get request. Receives a string response that needs to be parsed to a JsonObject.
      * @return the Json Object received from the API
      */
-    public JsonObject getData() {
-        final JsonObject[] toReturn = new JsonObject[1];
-        String url = baseUrl;
+    public void getData(final String country) {
+        System.out.println("getData method invoked");
         requestQueue = Volley.newRequestQueue(context);
         stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
                 JsonObject convertedObject = new Gson().fromJson(response, JsonObject.class);
-                if (convertedObject == null) {
-                    System.out.println("convertedObject is null");
-                }
-                toReturn[0] = convertedObject;
+
+                CountryInfo countryInfo = new CountryInfo(convertedObject);
+                countryInfo.extractInfo(country);
+
+                //TextView may need to be done here for each country
+
+                //deaths
+
+                //deaths = findViewById(R.id.deathNumbers);
+                //deaths.setText(countryInfo.getNumDeaths());
+
+                // recovered
+
+                // cases
             }
         }, new Response.ErrorListener() {
             @Override
@@ -57,7 +69,7 @@ public class RequestQueueService {
             }
         });
         requestQueue.add(stringRequest);
-        return toReturn[0];
     }
+
 }
 

@@ -32,19 +32,24 @@ public class CountryInfo {
      * @param country the name of the country analyzed
      */
     public void extractInfo(String country) {
+        JsonObject ctObj = null;
         System.out.println("extracting info from object");
-            if (mapOfCountries.containsKey(country)) {
-                System.out.println("found country!");
-                JsonObject ctObj = mapOfCountries.get(country);
-                JsonElement deaths = ctObj.get("TotalDeaths");
-                numDeaths = deaths.getAsString();
-                System.out.println("num of deaths: " + getNumDeaths());
-                JsonElement recovered = ctObj.get("TotalRecovered");
-                numRecovered = recovered.getAsString();
-                JsonElement cases = ctObj.get("TotalConfirmed");
-                numCases = cases.getAsString();
-            }
-
+        if (mapOfCountries.containsKey(country)) {
+            System.out.println("found country!");
+            ctObj = mapOfCountries.get(country);
+        } else if (country.equals("Global")) {
+            ctObj = info.get("Global").getAsJsonObject();
+        }
+        System.out.println("ctObj is null: " + ctObj.isJsonNull());
+        JsonElement deaths = ctObj.get("TotalDeaths");
+        numDeaths = deaths.getAsString();
+        System.out.println("num of deaths: " + getNumDeaths());
+        JsonElement recovered = ctObj.get("TotalRecovered");
+        numRecovered = recovered.getAsString();
+        System.out.println("num recovered: " + getNumRecovered());
+        JsonElement cases = ctObj.get("TotalConfirmed");
+        numCases = cases.getAsString();
+        System.out.println("num cases: " + getNumCases());
     }
 
     public String getNumCases() {
